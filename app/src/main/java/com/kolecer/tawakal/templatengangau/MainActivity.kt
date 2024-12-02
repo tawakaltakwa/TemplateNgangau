@@ -15,11 +15,11 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
-
+    private lateinit var um: Umum
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        val sharedPref = getSharedPreferences("pref", Context.MODE_PRIVATE)
-        when (sharedPref.getString("theme", "hejo")) {
+        um = Umum(this)
+        when (um.getString("theme", "hejo")) {
             "hejo" -> setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
             "biru" -> setTheme(R.style.Base_Theme_TemplateNgangau_Biru)
             "beureum" -> setTheme(R.style.Base_Theme_TemplateNgangau_Beureum)
@@ -67,5 +67,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+    companion object{
+
     }
 }

@@ -1,6 +1,5 @@
 package com.kolecer.tawakal.templatengangau
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
 class FragmentSetting : Fragment() {
+    private lateinit var um: Umum
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -31,12 +31,10 @@ class FragmentSetting : Fragment() {
         val btKayas = view.findViewById<Button>(R.id.bTemaKayas)
         val btBungur = view.findViewById<Button>(R.id.bTemaBungur)
         val btOren = view.findViewById<Button>(R.id.bTemaOren)
-        val sharedPref = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
+        um = Umum(requireActivity())
         fun aturWarna(warna: String) {
-            editor.putString("theme", warna)
-            editor.apply()
-            when (sharedPref.getString("theme", "hejo")) {
+            um.saveString("theme", warna)
+            when (um.getString("theme", "hejo")) {
                 "hejo" -> requireActivity().setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
                 "biru" -> requireActivity().setTheme(R.style.Base_Theme_TemplateNgangau_Biru)
                 "beureum" -> requireActivity().setTheme(R.style.Base_Theme_TemplateNgangau_Beureum)
