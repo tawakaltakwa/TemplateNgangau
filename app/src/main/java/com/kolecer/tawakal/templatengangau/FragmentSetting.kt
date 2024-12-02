@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import kotlin.apply
 
 class FragmentSetting : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {

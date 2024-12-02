@@ -1,17 +1,13 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.TemplateNgangau" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.TemplateNgangau" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorOnPrimary">@color/white</item>
 
         <!-- Text -->
         <item name="android:textSize">16sp</item>
         <item name="android:textColorPrimary">@color/black</item>
-        <item name="android:textColorSecondary">@color/black2</item>
-        <item name="titleTextColor">@color/white</item>
-        <item name="subtitleTextColor">@color/white</item>
-        <item name="android:itemBackground">@color/white</item>
-        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:textColorSecondary">@color/black</item>
 
         <!-- bg -->
         <item name="android:colorBackground">@color/white</item>
@@ -20,55 +16,54 @@
 
         <!-- lain -->
         <item name="actionOverflowButtonStyle">@style/MyOverflowButtonStyle</item>
-        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
 
     <!-- Drawer -->
     <style name="Widget.Custom.NavigationView.Hejo" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
-        <item name="itemTextColor">@drawable/nav_item_colors</item>
+        <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_hejo</item>
         <item name="android:background">@color/abugelap</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Biru" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
-        <item name="itemTextColor">@drawable/nav_item_colors</item>
+        <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_biru</item>
         <item name="android:background">@color/abugelap</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Beureum" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
-        <item name="itemTextColor">@drawable/nav_item_colors</item>
+        <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_beureum</item>
         <item name="android:background">@color/abugelap</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Bungur" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
-        <item name="itemTextColor">@drawable/nav_item_colors</item>
+        <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_bungur</item>
         <item name="android:background">@color/abugelap</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Kayas" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
-        <item name="itemTextColor">@drawable/nav_item_colors</item>
+        <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_kayas</item>
         <item name="android:background">@color/abugelap</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Oren" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
-        <item name="itemTextColor">@drawable/nav_item_colors</item>
+        <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_oren</item>
         <item name="android:background">@color/abugelap</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Koneng" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
-        <item name="itemTextColor">@drawable/nav_item_colors</item>
+        <item name="itemTextColor">@drawable/nav_item_teks_hideung_kabeh</item>
         <item name="itemBackground">@drawable/nav_item_bg_koneng</item>
         <item name="android:background">@color/abugelap</item>
     </style>
@@ -87,6 +82,13 @@
         <item name="colorPrimaryVariant">@color/hejo2</item>
         <item name="colorPrimaryDark">@color/hejo1</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Hejo</item>
+        <!-- teks -->
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/white</item>
+        <item name="android:itemBackground">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <!-- lain -->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
 
     <style name="Base.Theme.TemplateNgangau.Biru" parent="Base.Theme.TemplateNgangau">
@@ -94,6 +96,13 @@
         <item name="colorPrimaryVariant">@color/biru2</item>
         <item name="colorPrimaryDark">@color/biru</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Biru</item>
+        <!-- teks -->
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/white</item>
+        <item name="android:itemBackground">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <!-- lain -->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
 
     <style name="Base.Theme.TemplateNgangau.Beureum" parent="Base.Theme.TemplateNgangau">
@@ -101,6 +110,13 @@
         <item name="colorPrimaryVariant">@color/beureum2</item>
         <item name="colorPrimaryDark">@color/beureum2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Beureum</item>
+        <!-- teks -->
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/white</item>
+        <item name="android:itemBackground">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <!-- lain -->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
 
     <style name="Base.Theme.TemplateNgangau.Kayas" parent="Base.Theme.TemplateNgangau">
@@ -108,6 +124,13 @@
         <item name="colorPrimaryVariant">@color/kayas2</item>
         <item name="colorPrimaryDark">@color/kayas2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Kayas</item>
+        <!-- teks -->
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/white</item>
+        <item name="android:itemBackground">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <!-- lain -->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
 
     <style name="Base.Theme.TemplateNgangau.Bungur" parent="Base.Theme.TemplateNgangau">
@@ -115,6 +138,13 @@
         <item name="colorPrimaryVariant">@color/bungur2</item>
         <item name="colorPrimaryDark">@color/bungur2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Bungur</item>
+        <!-- teks -->
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/white</item>
+        <item name="android:itemBackground">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <!-- lain -->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
 
     <style name="Base.Theme.TemplateNgangau.Koneng" parent="Base.Theme.TemplateNgangau">
@@ -122,6 +152,12 @@
         <item name="colorPrimaryVariant">@color/koneng2</item>
         <item name="colorPrimaryDark">@color/koneng2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Koneng</item>
+        <!-- teks -->
+        <item name="titleTextColor">@color/black</item>
+        <item name="subtitleTextColor">@color/black</item>
+        <item name="android:itemBackground">@color/black</item>
+        <item name="actionMenuTextColor">@color/black</item>
+        <item name="colorOnPrimary">@color/black</item>
     </style>
 
     <style name="Base.Theme.TemplateNgangau.Oren" parent="Base.Theme.TemplateNgangau">
@@ -129,6 +165,13 @@
         <item name="colorPrimaryVariant">@color/oren2</item>
         <item name="colorPrimaryDark">@color/oren2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Oren</item>
+        <!-- teks -->
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/white</item>
+        <item name="android:itemBackground">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <!-- lain -->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
 
     <style name="Theme.TemplateNgangau" parent="Base.Theme.TemplateNgangau" />
