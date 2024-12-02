@@ -14,4 +14,17 @@ class Umum(c: Context) {
     fun getString(key: String, defaultValue: String): String {
         return sharedPreferences.getString(key, defaultValue) ?: defaultValue
     }
+
+    fun aturWarna(context: Context, warna: String) {
+        when (warna) {
+            "hejo" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
+            "biru" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Biru)
+            "beureum" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Beureum)
+            "koneng" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Koneng)
+            "kayas" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Kayas)
+            "bungur" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Bungur)
+            "oren" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Oren)
+            else -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
+        }
+    }
 }

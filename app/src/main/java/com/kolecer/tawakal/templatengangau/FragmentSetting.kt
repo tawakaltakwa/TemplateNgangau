@@ -34,16 +34,7 @@ class FragmentSetting : Fragment() {
         um = Umum(requireActivity())
         fun aturWarna(warna: String) {
             um.saveString("theme", warna)
-            when (um.getString("theme", "hejo")) {
-                "hejo" -> requireActivity().setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
-                "biru" -> requireActivity().setTheme(R.style.Base_Theme_TemplateNgangau_Biru)
-                "beureum" -> requireActivity().setTheme(R.style.Base_Theme_TemplateNgangau_Beureum)
-                "koneng" -> requireActivity().setTheme(R.style.Base_Theme_TemplateNgangau_Koneng)
-                "kayas" -> requireActivity().setTheme(R.style.Base_Theme_TemplateNgangau_Kayas)
-                "bungur" -> requireActivity().setTheme(R.style.Base_Theme_TemplateNgangau_Bungur)
-                "oren" -> requireActivity().setTheme(R.style.Base_Theme_TemplateNgangau_Oren)
-                else -> requireActivity().setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
-            }
+            um.aturWarna(requireActivity(), warna)
             requireActivity().recreate()
         }
         btHejo.setOnClickListener { aturWarna("hejo") }

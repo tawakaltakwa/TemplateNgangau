@@ -1,6 +1,5 @@
 package com.kolecer.tawakal.templatengangau
 
-import android.content.Context
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
@@ -19,16 +18,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         um = Umum(this)
-        when (um.getString("theme", "hejo")) {
-            "hejo" -> setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
-            "biru" -> setTheme(R.style.Base_Theme_TemplateNgangau_Biru)
-            "beureum" -> setTheme(R.style.Base_Theme_TemplateNgangau_Beureum)
-            "koneng" -> setTheme(R.style.Base_Theme_TemplateNgangau_Koneng)
-            "kayas" -> setTheme(R.style.Base_Theme_TemplateNgangau_Kayas)
-            "bungur" -> setTheme(R.style.Base_Theme_TemplateNgangau_Bungur)
-            "oren" -> setTheme(R.style.Base_Theme_TemplateNgangau_Oren)
-            else -> setTheme(R.style.Base_Theme_TemplateNgangau_Hejo) // Default to green theme
-        }
+        um.aturWarna(this, um.getString("theme", "hejo"))
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -68,7 +58,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
-    companion object{
+
+    companion object {
 
     }
 }
