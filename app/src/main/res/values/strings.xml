@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Template Ngangau</string>
+    <string name="app_creator">Tawakal Takwa</string>
+    <string name="app_company">Warung Kolecer</string>
+    <string name="app_tglawalbuat">1 December 2024</string>
+    <string name="app_versi">1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open_nav"></string>
+    <string name="close_nav"></string>
+</resources>
