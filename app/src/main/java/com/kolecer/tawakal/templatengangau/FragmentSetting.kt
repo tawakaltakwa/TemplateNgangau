@@ -31,7 +31,7 @@ class FragmentSetting : Fragment() {
         val btKayas = view.findViewById<Button>(R.id.bTemaKayas)
         val btBungur = view.findViewById<Button>(R.id.bTemaBungur)
         val btOren = view.findViewById<Button>(R.id.bTemaOren)
-        val sharedPref = requireActivity().getSharedPreferences("theme", Context.MODE_PRIVATE)
+        val sharedPref = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
         fun aturWarna(warna: String) {
             editor.putString("theme", warna)

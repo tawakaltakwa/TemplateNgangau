@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        val sharedPref = getSharedPreferences("theme", Context.MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("pref", Context.MODE_PRIVATE)
         when (sharedPref.getString("theme", "hejo")) {
             "hejo" -> setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
             "biru" -> setTheme(R.style.Base_Theme_TemplateNgangau_Biru)
