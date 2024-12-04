@@ -22,7 +22,7 @@ class FragmentMain : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.title = "Fragment Main"
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
     }
 
     companion object {

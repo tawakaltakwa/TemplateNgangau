@@ -59,6 +59,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    private fun shouldCancelBackPress(): Boolean {
+        var tahan = false
+        if (supportActionBar?.title?.toString() != getString(R.string.app_name)) {
+            tahan = true
+        }
+        return tahan
+    }
+
+    override fun onBackPressed() {
+        if (shouldCancelBackPress()) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.FragmentMain, FragmentMain()).commit()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     companion object {
 
     }
