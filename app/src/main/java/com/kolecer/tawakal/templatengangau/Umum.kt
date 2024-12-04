@@ -2,6 +2,7 @@ package com.kolecer.tawakal.templatengangau
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.appcompat.app.AppCompatDelegate
 
 class Umum(c: Context) {
     private val sharedPreferences: SharedPreferences =
@@ -25,6 +26,14 @@ class Umum(c: Context) {
             "bungur" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Bungur)
             "oren" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Oren)
             else -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
+        }
+    }
+
+    fun temaGelap(tema: String) {
+        if (tema == "on") {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
 }

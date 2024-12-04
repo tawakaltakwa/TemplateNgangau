@@ -3,19 +3,25 @@
     <style name="Base.Theme.TemplateNgangau" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
 
         <!-- Text -->
         <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textColorPrimary">@color/black</item>
         <item name="android:textColorSecondary">@color/black</item>
 
         <!-- bg -->
         <item name="android:colorBackground">@color/white</item>
         <item name="android:colorForeground">@color/abugelap</item>
-        <item name="colorAccent">@color/hejo2</item>
+        <!--        <item name="colorAccent">@color/hejo2</item>-->
 
         <!-- lain -->
         <item name="actionOverflowButtonStyle">@style/MyOverflowButtonStyle</item>
+        <item name="color">@color/white</item>
+        <item name="tint">@color/white</item>
+        <item name="android:listDivider">@color/abugelap</item>
+        <item name="android:dividerHeight">2dp</item>
     </style>
 
     <!-- Drawer -->
@@ -76,17 +82,23 @@
         <item name="color">@color/white</item>
     </style>
 
+    <style name="AppTheme.DrawerArrowToggle2" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/black</item>
+    </style>
     <!-- Pilihan Warna -->
     <style name="Base.Theme.TemplateNgangau.Hejo" parent="Base.Theme.TemplateNgangau">
         <item name="colorPrimary">@color/hejo1</item>
         <item name="colorPrimaryVariant">@color/hejo2</item>
         <item name="colorPrimaryDark">@color/hejo1</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Hejo</item>
+        <item name="colorControlActivated">@color/hejo1</item>
+        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
         <item name="android:itemBackground">@color/white</item>
         <item name="actionMenuTextColor">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- lain -->
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
@@ -96,11 +108,14 @@
         <item name="colorPrimaryVariant">@color/biru2</item>
         <item name="colorPrimaryDark">@color/biru</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Biru</item>
+        <item name="colorControlActivated">@color/biru</item>
+        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
         <item name="android:itemBackground">@color/white</item>
         <item name="actionMenuTextColor">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- lain -->
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
@@ -110,11 +125,14 @@
         <item name="colorPrimaryVariant">@color/beureum2</item>
         <item name="colorPrimaryDark">@color/beureum2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Beureum</item>
+        <item name="colorControlActivated">@color/beureum</item>
+        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
         <item name="android:itemBackground">@color/white</item>
         <item name="actionMenuTextColor">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- lain -->
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
@@ -124,11 +142,14 @@
         <item name="colorPrimaryVariant">@color/kayas2</item>
         <item name="colorPrimaryDark">@color/kayas2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Kayas</item>
+        <item name="colorControlActivated">@color/kayas</item>
+        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
         <item name="android:itemBackground">@color/white</item>
         <item name="actionMenuTextColor">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- lain -->
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
@@ -138,11 +159,14 @@
         <item name="colorPrimaryVariant">@color/bungur2</item>
         <item name="colorPrimaryDark">@color/bungur2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Bungur</item>
+        <item name="colorControlActivated">@color/bungur</item>
+        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
         <item name="android:itemBackground">@color/white</item>
         <item name="actionMenuTextColor">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- lain -->
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
@@ -152,12 +176,16 @@
         <item name="colorPrimaryVariant">@color/koneng2</item>
         <item name="colorPrimaryDark">@color/koneng2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Koneng</item>
+        <item name="colorControlActivated">@color/koneng</item>
+        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/black</item>
         <item name="subtitleTextColor">@color/black</item>
         <item name="android:itemBackground">@color/black</item>
         <item name="actionMenuTextColor">@color/black</item>
         <item name="colorOnPrimary">@color/black</item>
+        <!-- lain -->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle2</item>
     </style>
 
     <style name="Base.Theme.TemplateNgangau.Oren" parent="Base.Theme.TemplateNgangau">
@@ -165,11 +193,14 @@
         <item name="colorPrimaryVariant">@color/oren2</item>
         <item name="colorPrimaryDark">@color/oren2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Oren</item>
+        <item name="colorControlActivated">@color/oren</item>
+        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
         <item name="android:itemBackground">@color/white</item>
         <item name="actionMenuTextColor">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- lain -->
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>

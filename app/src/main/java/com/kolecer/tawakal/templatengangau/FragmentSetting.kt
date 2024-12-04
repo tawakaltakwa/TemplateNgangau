@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
@@ -15,8 +16,7 @@ class FragmentSetting : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_setting, container, false)
     }
@@ -44,6 +44,22 @@ class FragmentSetting : Fragment() {
         btKayas.setOnClickListener { aturWarna("kayas") }
         btBungur.setOnClickListener { aturWarna("bungur") }
         btOren.setOnClickListener { aturWarna("oren") }
+        val switchGelap = view.findViewById<Switch>(R.id.switchTemaGelap)
+        if (um.getString("gelap", "on") == "on") {
+            switchGelap.isChecked = true
+        } else {
+            switchGelap.isChecked = false
+        }
+        switchGelap.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                um.saveString("gelap", "on")
+                um.temaGelap("on")
+            } else {
+                um.saveString("gelap", "off")
+                um.temaGelap("off")
+            }
+            requireActivity().recreate()
+        }
     }
 
     companion object {
