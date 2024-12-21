@@ -22,6 +22,10 @@
         <item name="tint">@color/white</item>
         <item name="android:listDivider">@color/abugelap</item>
         <item name="android:dividerHeight">2dp</item>
+        <item name="colorControlActivated">?attr/colorPrimary</item>
+        <item name="colorControlNormal">?attr/colorOnSecondary</item>
+        <item name="colorControlHighlight">?attr/colorPrimary</item>
+        <item name="colorSwitchThumbNormal">@color/abugelap</item>
     </style>
 
     <!-- Drawer -->
@@ -85,14 +89,13 @@
     <style name="AppTheme.DrawerArrowToggle2" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@color/black</item>
     </style>
+
     <!-- Pilihan Warna -->
     <style name="Base.Theme.TemplateNgangau.Hejo" parent="Base.Theme.TemplateNgangau">
         <item name="colorPrimary">@color/hejo1</item>
         <item name="colorPrimaryVariant">@color/hejo2</item>
         <item name="colorPrimaryDark">@color/hejo1</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Hejo</item>
-        <item name="colorControlActivated">@color/hejo1</item>
-        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
@@ -108,8 +111,7 @@
         <item name="colorPrimaryVariant">@color/biru2</item>
         <item name="colorPrimaryDark">@color/biru</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Biru</item>
-        <item name="colorControlActivated">@color/biru</item>
-        <item name="colorSwitchThumbNormal">@color/abugelap</item>
+
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
@@ -125,8 +127,6 @@
         <item name="colorPrimaryVariant">@color/beureum2</item>
         <item name="colorPrimaryDark">@color/beureum2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Beureum</item>
-        <item name="colorControlActivated">@color/beureum</item>
-        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
@@ -142,8 +142,6 @@
         <item name="colorPrimaryVariant">@color/kayas2</item>
         <item name="colorPrimaryDark">@color/kayas2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Kayas</item>
-        <item name="colorControlActivated">@color/kayas</item>
-        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
@@ -159,8 +157,6 @@
         <item name="colorPrimaryVariant">@color/bungur2</item>
         <item name="colorPrimaryDark">@color/bungur2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Bungur</item>
-        <item name="colorControlActivated">@color/bungur</item>
-        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
@@ -176,8 +172,6 @@
         <item name="colorPrimaryVariant">@color/koneng2</item>
         <item name="colorPrimaryDark">@color/koneng2</item>
         <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Koneng</item>
-        <item name="colorControlActivated">@color/koneng</item>
-        <item name="colorSwitchThumbNormal">@color/abugelap</item>
         <!-- teks -->
         <item name="titleTextColor">@color/black</item>
         <item name="subtitleTextColor">@color/black</item>
@@ -192,9 +186,7 @@
         <item name="colorPrimary">@color/oren</item>
         <item name="colorPrimaryVariant">@color/oren2</item>
         <item name="colorPrimaryDark">@color/oren2</item>
-        <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Oren</item>
-        <item name="colorControlActivated">@color/oren</item>
-        <item name="colorSwitchThumbNormal">@color/abugelap</item>
+        <item name="navigationViewStyle">@style/Widget.Custom.NavigationView.Oren</item><item name="colorControlActivated">@color/oren</item>
         <!-- teks -->
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
