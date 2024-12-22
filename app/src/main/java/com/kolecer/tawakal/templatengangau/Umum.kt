@@ -2,11 +2,19 @@ package com.kolecer.tawakal.templatengangau
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.view.LayoutInflater
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 
 class Umum(c: Context) {
     private val sharedPreferences: SharedPreferences =
         c.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+    private var alertDialog: AlertDialog? = null
+    private var progMuter: ProgressBar? = null
+    private var tvProgMuter: TextView? = null
 
     fun saveString(key: String, value: String) {
         sharedPreferences.edit().putString(key, value).apply()
@@ -35,5 +43,44 @@ class Umum(c: Context) {
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
+    }
+
+    fun FormatDuit(angka: Int): String {
+        /*val nf = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+        var d = nf.format(angka)*/
+        return "Rp. " + angka.toString()
+    }
+
+    fun ToastSederhana(context: Context, pesan: String) {
+        Toast.makeText(context, pesan, Toast.LENGTH_LONG).show()
+    }
+
+    fun DialogSederhana(context: Context, judul: String, pesan: String) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(judul).setMessage(pesan).setPositiveButton("OK") { dialog, _ ->
+            dialog.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    fun ProgMuterBuka(context: Context, judul: String) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(judul).setCancelable(false)
+        val dView = LayoutInflater.from(context).inflate(R.layout.dialog_progress, null)
+        progMuter = dView.findViewById(R.id.progressBar)
+        tvProgMuter = dView.findViewById(R.id.tvdprogA)
+        tvProgMuter!!.text = "Proses..."
+        builder.setView(dView)
+        alertDialog = builder.create()
+        alertDialog?.show()
+    }
+
+    fun ProgMuterUpdate(teksA: String) {
+        tvProgMuter!!.text = teksA
+    }
+
+    fun ProgMuterTutup() {
+        alertDialog?.dismiss()
     }
 }

@@ -32,49 +32,49 @@
         <item name="itemIconTint">@color/white</item>
         <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_hejo</item>
-        <item name="android:background">@color/abugelap</item>
+        <item name="android:background">@color/abugelaptransp</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Biru" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
         <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_biru</item>
-        <item name="android:background">@color/abugelap</item>
+        <item name="android:background">@color/abugelaptransp</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Beureum" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
         <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_beureum</item>
-        <item name="android:background">@color/abugelap</item>
+        <item name="android:background">@color/abugelaptransp</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Bungur" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
         <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_bungur</item>
-        <item name="android:background">@color/abugelap</item>
+        <item name="android:background">@color/abugelaptransp</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Kayas" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
         <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_kayas</item>
-        <item name="android:background">@color/abugelap</item>
+        <item name="android:background">@color/abugelaptransp</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Oren" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
         <item name="itemTextColor">@drawable/nav_item_teks</item>
         <item name="itemBackground">@drawable/nav_item_bg_oren</item>
-        <item name="android:background">@color/abugelap</item>
+        <item name="android:background">@color/abugelaptransp</item>
     </style>
 
     <style name="Widget.Custom.NavigationView.Koneng" parent="Widget.Design.NavigationView">
         <item name="itemIconTint">@color/white</item>
         <item name="itemTextColor">@drawable/nav_item_teks_hideung_kabeh</item>
         <item name="itemBackground">@drawable/nav_item_bg_koneng</item>
-        <item name="android:background">@color/abugelap</item>
+        <item name="android:background">@color/abugelaptransp</item>
     </style>
 
     <style name="MyOverflowButtonStyle" parent="Widget.AppCompat.ActionButton.Overflow">
