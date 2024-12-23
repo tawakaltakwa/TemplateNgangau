@@ -25,6 +25,7 @@
         <item name="colorControlNormal">?attr/colorOnSecondary</item>
         <item name="colorControlHighlight">?attr/colorPrimary</item>
         <item name="colorSwitchThumbNormal">@color/abugelap</item>
+        <item name="android:editTextBackground">@drawable/cell_bg_edittext</item>
     </style>
 
     <!-- Drawer -->
