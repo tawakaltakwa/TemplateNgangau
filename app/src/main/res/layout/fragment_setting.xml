@@ -33,7 +33,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/hejo1"
-                    android:text="Hijau" />
+                    android:text="Hijau"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/bTemaBiru"
@@ -41,7 +42,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/biru"
-                    android:text="Biru" />
+                    android:text="Biru"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/bTemaBeureum"
@@ -49,7 +51,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/beureum"
-                    android:text="Merah" />
+                    android:text="Merah"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/bTemaOren"
@@ -57,7 +60,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/oren"
-                    android:text="Oren" />
+                    android:text="Oren"
+                    android:textColor="@color/white" />
             </TableRow>
 
             <TableRow
@@ -70,7 +74,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/kayas"
-                    android:text="Pink" />
+                    android:text="Pink"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/bTemaBungur"
@@ -78,7 +83,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/bungur"
-                    android:text="Ungu" />
+                    android:text="Ungu"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/bTemaKoneng"
@@ -86,7 +92,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/koneng"
-                    android:text="Kuning" />
+                    android:text="Kuning"
+                    android:textColor="@color/black" />
 
                 <Space
                     android:layout_width="wrap_content"
