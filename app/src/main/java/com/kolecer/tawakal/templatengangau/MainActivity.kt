@@ -1,5 +1,6 @@
 package com.kolecer.tawakal.templatengangau
 
+import android.content.Context
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         um = Umum(this)
         um.aturWarna(this, um.getString("theme", "hejo"))
         um.temaGelap(um.getString("gelap", "on"))
+        Companion.initUmum(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -50,8 +52,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.navMain -> supportFragmentManager.beginTransaction()
                 .replace(R.id.FragmentMain, FragmentMain()).commit()
 
-            R.id.navSett -> supportFragmentManager.beginTransaction()
-                .replace(R.id.FragmentMain, FragmentSetting()).commit()
+            R.id.navSett -> {
+                Companion.PMbuka("Memuat Setting")
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.FragmentMain, FragmentSetting()).commit()
+            }
 
             R.id.navInfo -> supportFragmentManager.beginTransaction()
                 .replace(R.id.FragmentMain, FragmentInfo()).commit()
@@ -78,6 +83,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     companion object {
+        lateinit var um: Umum
+        lateinit var context: Context
+        fun initUmum(c: Context) {
+            context = c
+            um = Umum(c)
+        }
 
+        fun PMbuka(j: String) {
+            um.ProgMuterBuka(context, j)
+        }
+
+        fun PMup(j: String) {
+            um.ProgMuterUpdate(j)
+        }
+
+        fun PMtutup() {
+            um.ProgMuterTutup()
+        }
     }
 }
