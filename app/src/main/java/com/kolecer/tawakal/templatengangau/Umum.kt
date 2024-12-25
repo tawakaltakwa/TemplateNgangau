@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatDelegate
 class Umum(c: Context) {
     private val sharedPreferences: SharedPreferences =
         c.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
-    private var alertDialog: AlertDialog? = null
+    lateinit var alertDialog: AlertDialog
     private var progMuter: ProgressBar? = null
     private var tvProgMuter: TextView? = null
 
@@ -57,23 +57,29 @@ class Umum(c: Context) {
 
     fun DialogSederhana(context: Context, judul: String, pesan: String) {
         val builder = AlertDialog.Builder(context)
-        builder.setTitle(judul).setMessage(pesan).setPositiveButton("OK") { dialog, _ ->
+        var judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
+        judulL.text = judul
+        builder.setCustomTitle(judulL).setMessage(pesan).setPositiveButton("OK") { dialog, _ ->
             dialog.dismiss()
         }
         val dialog = builder.create()
+        dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
         dialog.show()
     }
 
     fun ProgMuterBuka(context: Context, judul: String) {
         val builder = AlertDialog.Builder(context)
-        builder.setTitle(judul).setCancelable(false)
+        var judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
+        judulL.text = judul
+        builder.setCustomTitle(judulL).setCancelable(false)
         val dView = LayoutInflater.from(context).inflate(R.layout.dialog_progress, null)
         progMuter = dView.findViewById(R.id.progressBar)
         tvProgMuter = dView.findViewById(R.id.tvdprogA)
         tvProgMuter!!.text = "Proses..."
         builder.setView(dView)
         alertDialog = builder.create()
-        alertDialog?.show()
+        alertDialog.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
+        alertDialog.show()
     }
 
     fun ProgMuterUpdate(teksA: String) {

@@ -37,6 +37,7 @@ class FragmentSetting : Fragment() {
             um.aturWarna(requireActivity(), warna)
             requireActivity().recreate()
         }
+        MainActivity.Companion.PMtutup()
         btHejo.setOnClickListener { aturWarna("hejo") }
         btBiru.setOnClickListener { aturWarna("biru") }
         btBeureum.setOnClickListener { aturWarna("beureum") }
