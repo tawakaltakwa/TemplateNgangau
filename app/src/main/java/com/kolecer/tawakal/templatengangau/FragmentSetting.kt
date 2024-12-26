@@ -46,7 +46,7 @@ class FragmentSetting : Fragment() {
         btBungur.setOnClickListener { aturWarna("bungur") }
         btOren.setOnClickListener { aturWarna("oren") }
         val switchGelap = view.findViewById<Switch>(R.id.switchTemaGelap)
-        if (um.getString("gelap", "on") == "on") {
+        if (um.getString("gelap", "off") == "on") {
             switchGelap.isChecked = true
         } else {
             switchGelap.isChecked = false

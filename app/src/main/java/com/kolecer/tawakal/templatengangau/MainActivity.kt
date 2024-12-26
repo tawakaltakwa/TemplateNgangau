@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         um = Umum(this)
         um.aturWarna(this, um.getString("theme", "hejo"))
-        um.temaGelap(um.getString("gelap", "on"))
+        um.temaGelap(um.getString("gelap", "off"))
         Companion.initUmum(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
