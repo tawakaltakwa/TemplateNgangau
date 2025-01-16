@@ -83,10 +83,26 @@ class Umum(c: Context) {
     }
 
     fun ProgMuterUpdate(teksA: String) {
-        tvProgMuter!!.text = teksA
+        try {
+            alertDialog?.let { dialog ->
+                if (dialog.isShowing) {
+                    tvProgMuter!!.text = teksA
+                }
+            }
+        } catch (rusak: Exception) {
+
+        }
     }
 
     fun ProgMuterTutup() {
-        alertDialog?.dismiss()
+        try {
+            alertDialog?.let { dialog ->
+                if (dialog.isShowing) {
+                    dialog.dismiss()
+                }
+            }
+        } catch (rusak: Exception) {
+
+        }
     }
 }
