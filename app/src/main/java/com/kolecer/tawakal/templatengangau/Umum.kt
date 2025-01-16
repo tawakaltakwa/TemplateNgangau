@@ -45,8 +45,7 @@ class Umum(c: Context) {
         }
     }
 
-    fun FormatDuit(angka: Int): String {
-        /*val nf = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+    fun FormatDuit(angka: Int): String {/*val nf = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
         var d = nf.format(angka)*/
         return "Rp. " + angka.toString()
     }
@@ -83,10 +82,43 @@ class Umum(c: Context) {
     }
 
     fun ProgMuterUpdate(teksA: String) {
-        tvProgMuter!!.text = teksA
+        try {
+            alertDialog?.let { dialog ->
+                if (dialog.isShowing) {
+                    tvProgMuter!!.text = teksA
+                }
+            }
+        } catch (rusak: Exception) {
+
+        }
     }
 
     fun ProgMuterTutup() {
-        alertDialog?.dismiss()
+        try {
+            alertDialog?.let { dialog ->
+                if (dialog.isShowing) {
+                    dialog.dismiss()
+                }
+            }
+        } catch (rusak: Exception) {
+
+        }
+    }
+
+    fun DialogKonfirmasi(context: Context, judul: String, pesan: String, konfirmasi: () -> Unit) {
+        val builder = AlertDialog.Builder(context)
+        var judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
+        judulL.text = judul
+        builder.setCustomTitle(judulL).setMessage(pesan)
+        builder.setPositiveButton("Ya") { dialog, _ ->
+            konfirmasi.invoke()
+            dialog.dismiss()
+        }
+        builder.setNegativeButton("Batal") { dialog, _ ->
+            dialog.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
+        dialog.show()
     }
 }

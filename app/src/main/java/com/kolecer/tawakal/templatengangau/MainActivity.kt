@@ -3,6 +3,7 @@ package com.kolecer.tawakal.templatengangau
 import android.content.Context
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -31,9 +32,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             insets
         }
         setSupportActionBar(findViewById(R.id.toolbar))
-        drawerLayout = findViewById<DrawerLayout>(R.id.main)
+        drawerLayout = findViewById(R.id.main)
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
+        val headerView = navigationView.getHeaderView(0)
+        val headerTitle: TextView = headerView.findViewById(R.id.header_judul)
+        headerTitle.text = "MENU"
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, findViewById(R.id.toolbar), R.string.open_nav, R.string.close_nav
         )
