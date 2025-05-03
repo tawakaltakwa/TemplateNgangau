@@ -3,6 +3,7 @@ package com.kolecer.tawakal.templatengangau
 import android.content.Context
 import android.content.SharedPreferences
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -118,6 +119,28 @@ class Umum(c: Context) {
             dialog.dismiss()
         }
         val dialog = builder.create()
+        dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
+        dialog.show()
+    }
+
+    // menyusun dialog selanjutnya disambung denga DialogTampil()
+    fun DialogSusun(
+        c: Context, judul: String, pesan: String, vBody: View
+    ): AlertDialog.Builder {
+        val builder = AlertDialog.Builder(c)
+        var judulL = LayoutInflater.from(c).inflate(R.layout.dialog_judul, null) as TextView
+        judulL.text = judul
+        builder.setCustomTitle(judulL)
+        if (pesan.length > 0) {
+            builder.setMessage(pesan)
+        }
+        builder.setView(vBody)
+        builder.create().window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
+        return builder
+    }
+
+    fun DialogTampil(d: AlertDialog.Builder) {
+        val dialog = d.create()
         dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
         dialog.show()
     }
