@@ -19,7 +19,7 @@ class Umum(c: Context) {
     private var tvProgMuter: TextView? = null
 
     fun saveString(key: String, value: String) {
-        sharedPreferences.edit() { putString(key, value) }
+        sharedPreferences.edit { putString(key, value) }
     }
 
     fun getString(key: String, defaultValue: String): String {

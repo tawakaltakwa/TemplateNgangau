@@ -1,13 +1,9 @@
 package com.kolecer.tawakal.templatengangau
 
-import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.MenuItem
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +39,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val headerView = navigationView.getHeaderView(0)
         val headerTitle: TextView = headerView.findViewById(R.id.header_judul)
         headerTitle.text = "MENU"
+        ngaloding = um.progMuterBuka(this, "Memuat...")
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, findViewById(R.id.toolbar), R.string.open_nav, R.string.close_nav
         )
@@ -61,7 +58,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .replace(R.id.FragmentMain, FragmentMain()).commit()
 
             R.id.navSett -> {
-                ngaloding = um.progMuterBuka(this, "Memuat...")
                 ngaloding.show()
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.FragmentMain, FragmentSetting()).commit()

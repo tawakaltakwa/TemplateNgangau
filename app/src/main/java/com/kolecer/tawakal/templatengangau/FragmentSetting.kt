@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Switch
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
@@ -46,7 +44,7 @@ class FragmentSetting : Fragment() {
         btBungur.setOnClickListener { aturWarna("bungur") }
         btOren.setOnClickListener { aturWarna("oren") }
         ma.um.progMuterUpdate(ma.ngaloding, "Cek tema gelap atau terang...")
-        val switchGelap = view.findViewById<Switch>(R.id.switchTemaGelap)
+        val switchGelap = view.findViewById<SwitchCompat>(R.id.switchTemaGelap)
         switchGelap.isChecked = um.getString("gelap", "off") == "on"
         switchGelap.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
