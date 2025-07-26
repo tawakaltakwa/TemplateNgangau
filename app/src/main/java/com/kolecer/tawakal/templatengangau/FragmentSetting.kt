@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Switch
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
@@ -22,6 +23,7 @@ class FragmentSetting : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "Fragment Setting"
+        val ma = activity as MainActivity
         val btHejo = view.findViewById<Button>(R.id.bTemaHijau)
         val btBeureum = view.findViewById<Button>(R.id.bTemaBeureum)
         val btBiru = view.findViewById<Button>(R.id.bTemaBiru)
@@ -30,12 +32,12 @@ class FragmentSetting : Fragment() {
         val btBungur = view.findViewById<Button>(R.id.bTemaBungur)
         val btOren = view.findViewById<Button>(R.id.bTemaOren)
         um = Umum(requireActivity())
+        ma.um.progMuterUpdate(ma.ngaloding, "Memuat tema...")
         fun aturWarna(warna: String) {
             um.saveString("theme", warna)
             um.aturWarna(requireActivity(), warna)
             requireActivity().recreate()
         }
-        MainActivity.PMtutup()
         btHejo.setOnClickListener { aturWarna("hejo") }
         btBiru.setOnClickListener { aturWarna("biru") }
         btBeureum.setOnClickListener { aturWarna("beureum") }
@@ -43,7 +45,8 @@ class FragmentSetting : Fragment() {
         btKayas.setOnClickListener { aturWarna("kayas") }
         btBungur.setOnClickListener { aturWarna("bungur") }
         btOren.setOnClickListener { aturWarna("oren") }
-        val switchGelap = view.findViewById<SwitchCompat>(R.id.switchTemaGelap)
+        ma.um.progMuterUpdate(ma.ngaloding, "Cek tema gelap atau terang...")
+        val switchGelap = view.findViewById<Switch>(R.id.switchTemaGelap)
         switchGelap.isChecked = um.getString("gelap", "off") == "on"
         switchGelap.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
@@ -55,6 +58,7 @@ class FragmentSetting : Fragment() {
             }
             requireActivity().recreate()
         }
+        ma.um.progMuterTutup(ma.ngaloding)
     }
 
     companion object

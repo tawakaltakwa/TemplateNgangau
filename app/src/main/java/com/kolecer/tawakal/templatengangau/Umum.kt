@@ -15,7 +15,6 @@ import androidx.core.content.edit
 class Umum(c: Context) {
     private val sharedPreferences: SharedPreferences =
         c.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
-    lateinit var alertDialog: AlertDialog
     private var progMuter: ProgressBar? = null
     private var tvProgMuter: TextView? = null
 
@@ -58,7 +57,7 @@ class Umum(c: Context) {
         Toast.makeText(context, pesan, Toast.LENGTH_LONG).show()
     }
 
-    fun dialogSederhana(context: Context, judul: String, pesan: String) {
+    fun dialogInfo(context: Context, judul: String, pesan: String) {
         val builder = AlertDialog.Builder(context)
         val judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
         judulL.text = judul
@@ -70,7 +69,7 @@ class Umum(c: Context) {
         dialog.show()
     }
 
-    fun progMuterBuka(context: Context, judul: String) {
+    fun progMuterBuka(context: Context, judul: String): AlertDialog {
         val builder = AlertDialog.Builder(context)
         val judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
         judulL.text = judul
@@ -80,33 +79,17 @@ class Umum(c: Context) {
         tvProgMuter = dView.findViewById(R.id.tvdprogA)
         tvProgMuter!!.text = "Proses..."
         builder.setView(dView)
-        alertDialog = builder.create()
+        val alertDialog = builder.create()
         alertDialog.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
-        alertDialog.show()
+        return alertDialog
     }
 
-    fun progMuterUpdate(teksA: String) {
-        try {
-            alertDialog?.let { dialog ->
-                if (dialog.isShowing) {
-                    tvProgMuter!!.text = teksA
-                }
-            }
-        } catch (_: Exception) {
-
-        }
+    fun progMuterUpdate(aD: AlertDialog, teksA: String) {
+        aD.findViewById<TextView>(R.id.tvdprogA)?.text = teksA
     }
 
-    fun progMuterTutup() {
-        try {
-            alertDialog?.let { dialog ->
-                if (dialog.isShowing) {
-                    dialog.dismiss()
-                }
-            }
-        } catch (_: Exception) {
-
-        }
+    fun progMuterTutup(aD: AlertDialog) {
+        aD.dismiss()
     }
 
     fun dialogKonfirmasi(context: Context, judul: String, pesan: String, konfirmasi: () -> Unit) {
@@ -143,7 +126,6 @@ class Umum(c: Context) {
     }
 
     fun dialogTampil(d: AlertDialog) {
-//        val dialog = d.create()
         d.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
         d.show()
     }

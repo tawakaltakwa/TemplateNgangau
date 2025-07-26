@@ -2,10 +2,14 @@ package com.kolecer.tawakal.templatengangau
 
 import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.MenuItem
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
@@ -16,13 +20,14 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var um: Umum
+    lateinit var um: Umum
+    lateinit var ngaloding: AlertDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         um = Umum(this)
         um.aturWarna(this, um.getString("theme", "hejo"))
         um.temaGelap(um.getString("gelap", "off"))
-        initUmum(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -48,7 +53,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .replace(R.id.FragmentMain, FragmentMain(), "frAktif").commit()
             navigationView.setCheckedItem(R.id.navMain)
         }
-
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -57,7 +61,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .replace(R.id.FragmentMain, FragmentMain()).commit()
 
             R.id.navSett -> {
-                PMbuka("Memuat Setting")
+                ngaloding = um.progMuterBuka(this, "Memuat...")
+                ngaloding.show()
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.FragmentMain, FragmentSetting()).commit()
             }
@@ -86,24 +91,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    companion object {
-        lateinit var um: Umum
-        lateinit var context: Context
-        fun initUmum(c: Context) {
-            context = c
-            um = Umum(c)
-        }
-
-        fun PMbuka(j: String) {
-            um.progMuterBuka(context, j)
-        }
-
-        fun PMup(j: String) {
-            um.progMuterUpdate(j)
-        }
-
-        fun PMtutup() {
-            um.progMuterTutup()
-        }
-    }
+    companion object;
 }
