@@ -9,10 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 class FragmentMain : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,7 +21,5 @@ class FragmentMain : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
     }
 
-    companion object {
-
-    }
+    companion object
 }

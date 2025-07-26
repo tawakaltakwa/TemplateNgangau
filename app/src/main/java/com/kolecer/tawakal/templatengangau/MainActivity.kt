@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         um = Umum(this)
         um.aturWarna(this, um.getString("theme", "hejo"))
         um.temaGelap(um.getString("gelap", "off"))
-        Companion.initUmum(this)
+        initUmum(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .replace(R.id.FragmentMain, FragmentMain()).commit()
 
             R.id.navSett -> {
-                Companion.PMbuka("Memuat Setting")
+                PMbuka("Memuat Setting")
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.FragmentMain, FragmentSetting()).commit()
             }
@@ -95,15 +95,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         fun PMbuka(j: String) {
-            um.ProgMuterBuka(context, j)
+            um.progMuterBuka(context, j)
         }
 
         fun PMup(j: String) {
-            um.ProgMuterUpdate(j)
+            um.progMuterUpdate(j)
         }
 
         fun PMtutup() {
-            um.ProgMuterTutup()
+            um.progMuterTutup()
         }
     }
 }

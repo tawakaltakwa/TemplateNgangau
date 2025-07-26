@@ -9,10 +9,6 @@ import androidx.fragment.app.Fragment
 
 class FragmentInfo : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,7 +21,5 @@ class FragmentInfo : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = "Fragment Informasi"
     }
 
-    companion object {
-
-    }
+    companion object
 }

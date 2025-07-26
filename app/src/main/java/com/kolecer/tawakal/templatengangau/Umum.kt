@@ -9,6 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
+import java.text.DecimalFormat
+import androidx.core.content.edit
 
 class Umum(c: Context) {
     private val sharedPreferences: SharedPreferences =
@@ -18,7 +20,7 @@ class Umum(c: Context) {
     private var tvProgMuter: TextView? = null
 
     fun saveString(key: String, value: String) {
-        sharedPreferences.edit().putString(key, value).apply()
+        sharedPreferences.edit() { putString(key, value) }
     }
 
     fun getString(key: String, defaultValue: String): String {
@@ -46,18 +48,19 @@ class Umum(c: Context) {
         }
     }
 
-    fun FormatDuit(angka: Int): String {/*val nf = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+    fun formatDuit(angka: Int): String {/*val nf = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
         var d = nf.format(angka)*/
-        return "Rp. " + angka.toString()
+        val formatter = DecimalFormat("#.###")
+        return "Rp. " + formatter.format(angka)
     }
 
-    fun ToastSederhana(context: Context, pesan: String) {
+    fun toastSederhana(context: Context, pesan: String) {
         Toast.makeText(context, pesan, Toast.LENGTH_LONG).show()
     }
 
-    fun DialogSederhana(context: Context, judul: String, pesan: String) {
+    fun dialogSederhana(context: Context, judul: String, pesan: String) {
         val builder = AlertDialog.Builder(context)
-        var judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
+        val judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
         judulL.text = judul
         builder.setCustomTitle(judulL).setMessage(pesan).setPositiveButton("OK") { dialog, _ ->
             dialog.dismiss()
@@ -67,9 +70,9 @@ class Umum(c: Context) {
         dialog.show()
     }
 
-    fun ProgMuterBuka(context: Context, judul: String) {
+    fun progMuterBuka(context: Context, judul: String) {
         val builder = AlertDialog.Builder(context)
-        var judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
+        val judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
         judulL.text = judul
         builder.setCustomTitle(judulL).setCancelable(false)
         val dView = LayoutInflater.from(context).inflate(R.layout.dialog_progress, null)
@@ -82,33 +85,33 @@ class Umum(c: Context) {
         alertDialog.show()
     }
 
-    fun ProgMuterUpdate(teksA: String) {
+    fun progMuterUpdate(teksA: String) {
         try {
             alertDialog?.let { dialog ->
                 if (dialog.isShowing) {
                     tvProgMuter!!.text = teksA
                 }
             }
-        } catch (rusak: Exception) {
+        } catch (_: Exception) {
 
         }
     }
 
-    fun ProgMuterTutup() {
+    fun progMuterTutup() {
         try {
             alertDialog?.let { dialog ->
                 if (dialog.isShowing) {
                     dialog.dismiss()
                 }
             }
-        } catch (rusak: Exception) {
+        } catch (_: Exception) {
 
         }
     }
 
-    fun DialogKonfirmasi(context: Context, judul: String, pesan: String, konfirmasi: () -> Unit) {
+    fun dialogKonfirmasi(context: Context, judul: String, pesan: String, konfirmasi: () -> Unit) {
         val builder = AlertDialog.Builder(context)
-        var judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
+        val judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
         judulL.text = judul
         builder.setCustomTitle(judulL).setMessage(pesan)
         builder.setPositiveButton("Ya") { dialog, _ ->
@@ -124,14 +127,14 @@ class Umum(c: Context) {
     }
 
     // menyusun dialog selanjutnya disambung denga DialogTampil()
-    fun DialogSusun(
+    fun dialogSusun(
         c: Context, judul: String, pesan: String, vBody: View
     ): AlertDialog.Builder {
         val builder = AlertDialog.Builder(c)
-        var judulL = LayoutInflater.from(c).inflate(R.layout.dialog_judul, null) as TextView
+        val judulL = LayoutInflater.from(c).inflate(R.layout.dialog_judul, null) as TextView
         judulL.text = judul
         builder.setCustomTitle(judulL)
-        if (pesan.length > 0) {
+        if (pesan.isNotEmpty()) {
             builder.setMessage(pesan)
         }
         builder.setView(vBody)
@@ -139,9 +142,9 @@ class Umum(c: Context) {
         return builder
     }
 
-    fun DialogTampil(d: AlertDialog.Builder) {
-        val dialog = d.create()
-        dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
-        dialog.show()
+    fun dialogTampil(d: AlertDialog) {
+//        val dialog = d.create()
+        d.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
+        d.show()
     }
 }
