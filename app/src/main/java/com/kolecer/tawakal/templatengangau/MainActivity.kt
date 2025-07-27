@@ -3,6 +3,7 @@ package com.kolecer.tawakal.templatengangau
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
@@ -50,6 +51,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .replace(R.id.FragmentMain, FragmentMain(), "frAktif").commit()
             navigationView.setCheckedItem(R.id.navMain)
         }
+
+        val onBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (shouldCancelBackPress()) {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.FragmentMain, FragmentMain()).commit()
+                } else {
+                    isEnabled = false
+                    onBackPressedDispatcher.onBackPressed()
+                    isEnabled = true
+                }
+            }
+        }
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -78,14 +93,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return tahan
     }
 
-    override fun onBackPressed() {
-        if (shouldCancelBackPress()) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.FragmentMain, FragmentMain()).commit()
-        } else {
-            super.onBackPressed()
-        }
-    }
-
-    companion object;
+    companion object
 }
