@@ -2,6 +2,7 @@ package com.kolecer.tawakal.templatengangau
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ProgressBar
@@ -85,11 +86,19 @@ class Umum(c: Context) {
     }
 
     fun progMuterUpdate(aD: AlertDialog, teksA: String) {
-        aD.findViewById<TextView>(R.id.tvdprogA)?.text = teksA
+        Handler(aD.window!!.decorView.handler.looper).post({
+            /*aD.findViewById<ProgressBar>(R.id.progressBar)?.incrementProgressBy(1)
+            aD.findViewById<ProgressBar>(R.id.progressBar)?.max = 100
+            aD.window!!.decorView.invalidate()
+            aD.window!!.decorView.requestLayout()*/
+            aD.findViewById<TextView>(R.id.tvdprogA)?.text = teksA
+        })
     }
 
     fun progMuterTutup(aD: AlertDialog) {
-        aD.dismiss()
+        Handler(aD.window!!.decorView.handler.looper).post({
+            aD.dismiss()
+        })
     }
 
     fun dialogKonfirmasi(context: Context, judul: String, pesan: String, konfirmasi: () -> Unit) {

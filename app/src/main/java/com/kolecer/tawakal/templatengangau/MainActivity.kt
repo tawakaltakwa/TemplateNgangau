@@ -74,6 +74,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             R.id.navSett -> {
                 ngaloding.show()
+                ngaloding.findViewById<TextView>(R.id.tvdprogA)?.text = "Memuat setting..."
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.FragmentMain, FragmentSetting()).commit()
             }
