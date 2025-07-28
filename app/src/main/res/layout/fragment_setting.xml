@@ -8,114 +8,153 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/cell_bg_abu"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/cell_bg_noborder"
-            android:text="Warna Aplikasi"
-            android:textSize="20sp" />
-
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:background="@drawable/cell_bg_abu"
+            android:orientation="vertical">
 
-            <TableRow
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/cell_bg_noborder"
+                android:text="Warna Aplikasi"
+                android:textSize="20sp" />
+
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/bTemaHijau"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/hejo1"
-                    android:text="Hijau"
-                    android:textColor="@color/white" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/bTemaBiru"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/biru"
-                    android:text="Biru"
-                    android:textColor="@color/white" />
+                    <Button
+                        android:id="@+id/bTemaHijau"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/hejo1"
+                        android:text="Hijau"
+                        android:textColor="@color/white" />
 
-                <Button
-                    android:id="@+id/bTemaBeureum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/beureum"
-                    android:text="Merah"
-                    android:textColor="@color/white" />
+                    <Button
+                        android:id="@+id/bTemaBiru"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/biru"
+                        android:text="Biru"
+                        android:textColor="@color/white" />
 
-                <Button
-                    android:id="@+id/bTemaOren"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/oren"
-                    android:text="Oren"
-                    android:textColor="@color/white" />
-            </TableRow>
+                    <Button
+                        android:id="@+id/bTemaBeureum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/beureum"
+                        android:text="Merah"
+                        android:textColor="@color/white" />
 
-            <TableRow
+                    <Button
+                        android:id="@+id/bTemaOren"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/oren"
+                        android:text="Oren"
+                        android:textColor="@color/white" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/bTemaKayas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/kayas"
+                        android:text="Pink"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/bTemaBungur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/bungur"
+                        android:text="Ungu"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/bTemaKoneng"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/koneng"
+                        android:text="Kuning"
+                        android:textColor="@color/black" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </TableRow>
+
+            </TableLayout>
+
+            <View
+                android:id="@+id/divider"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="?android:attr/listDivider" />
 
-                <Button
-                    android:id="@+id/bTemaKayas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/kayas"
-                    android:text="Pink"
-                    android:textColor="@color/white" />
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchTemaGelap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_bg_noborder"
+                android:text="Tema Gelap" />
+        </LinearLayout>
 
-                <Button
-                    android:id="@+id/bTemaBungur"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/bungur"
-                    android:text="Ungu"
-                    android:textColor="@color/white" />
-
-                <Button
-                    android:id="@+id/bTemaKoneng"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/koneng"
-                    android:text="Kuning"
-                    android:textColor="@color/black" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </TableRow>
-
-        </TableLayout>
-
-        <View
-            android:id="@+id/divider"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="?android:attr/listDivider" />
+            android:layout_height="match_parent"
+            android:background="@drawable/cell_bg_abu"
+            android:orientation="vertical">
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchTemaGelap"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/cell_bg_noborder"
-            android:text="Tema Gelap" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Atur Background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/settBpilihBG"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/settBresetBG"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Button" />
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

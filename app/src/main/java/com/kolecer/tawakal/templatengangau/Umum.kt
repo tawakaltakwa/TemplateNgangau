@@ -2,6 +2,8 @@ package com.kolecer.tawakal.templatengangau
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
@@ -12,6 +14,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.edit
+import java.io.FileNotFoundException
+import java.io.InputStream
 import java.text.DecimalFormat
 
 class Umum(c: Context) {
@@ -50,6 +54,21 @@ class Umum(c: Context) {
         }
     }
 
+    fun aturLatarBelakangLinearLayout(context: Context, ma: MainActivity, imageUri: Uri) {
+        try {
+            val inputStream: InputStream? = ma.contentResolver.openInputStream(imageUri)
+            val drawable = Drawable.createFromStream(inputStream, imageUri.toString())
+            ma.llru.background = drawable
+            inputStream?.close()
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+            ma.um.toastSederhana(context, "File gambar tidak ditemukan")
+        } catch (e: Exception) {
+            e.printStackTrace()
+            ma.um.toastSederhana(context, "Gagal memuat gambar")
+        }
+    }
+
     fun formatDuit(angka: Int): String {/*val nf = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
         var d = nf.format(angka)*/
         val formatter = DecimalFormat("#.###")
@@ -71,6 +90,7 @@ class Umum(c: Context) {
         dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
         dialog.show()
     }
+
     // tambahkan namaAlertDialog.show() dan namaAlertDialog.dismis() saat digunakan
     fun progMuterBuka(context: Context, judul: String): AlertDialog {
         val builder = AlertDialog.Builder(context)

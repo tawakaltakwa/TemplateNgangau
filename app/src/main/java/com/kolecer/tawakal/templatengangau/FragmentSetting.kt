@@ -1,16 +1,41 @@
 package com.kolecer.tawakal.templatengangau
 
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import java.io.FileNotFoundException
+import java.io.InputStream
 
 class FragmentSetting : Fragment() {
     private lateinit var um: Umum
+    lateinit var ma: MainActivity
+    private val pilihGambarLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                data?.data?.let { uri ->
+                    ma.um.saveString("bguri", uri.toString())
+                    ma.um.aturLatarBelakangLinearLayout(requireActivity(), ma, uri)
+                }
+            }
+        }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -21,7 +46,7 @@ class FragmentSetting : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "Fragment Setting"
-        val ma = activity as MainActivity
+        ma = activity as MainActivity
         val btHejo = view.findViewById<Button>(R.id.bTemaHijau)
         val btBeureum = view.findViewById<Button>(R.id.bTemaBeureum)
         val btBiru = view.findViewById<Button>(R.id.bTemaBiru)
@@ -57,6 +82,34 @@ class FragmentSetting : Fragment() {
             requireActivity().recreate()
         }
         ma.ngaloding.dismiss()
+        val btPilihBG = view.findViewById<Button>(R.id.settBpilihBG)
+        val btResetBG = view.findViewById<Button>(R.id.settBresetBG)
+        btPilihBG.text = "Pilih Gambar"
+        btResetBG.text = "Reset"
+        btPilihBG.setOnClickListener {
+            bukaPemilihGambar()
+        }
+        btResetBG.setOnClickListener {
+            ma.um.saveString("bguri", "kosong")
+            ma.llru.background = null
+        }
+    }
+
+    private fun bukaPemilihGambar() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).apply {
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        }
+        // Anda juga bisa menggunakan Intent.ACTION_OPEN_DOCUMENT untuk pemilih file yang lebih umum
+        // val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+        // intent.addCategory(Intent.CATEGORY_OPENABLE)
+        // intent.type = "image/*"
+//        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+//            addCategory(Intent.CATEGORY_OPENABLE)
+//            type = "image/*"
+//            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+//            // addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION) // If you need write access
+//        }
+        pilihGambarLauncher.launch(intent)
     }
 
     companion object
