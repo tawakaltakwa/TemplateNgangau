@@ -56,7 +56,7 @@ class FragmentSetting : Fragment() {
             }
             requireActivity().recreate()
         }
-        ma.um.progMuterTutup(ma.ngaloding)
+        ma.ngaloding.dismiss()
     }
 
     companion object

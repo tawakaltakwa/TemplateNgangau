@@ -3,6 +3,7 @@ package com.kolecer.tawakal.templatengangau
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ProgressBar
@@ -10,14 +11,15 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
-import java.text.DecimalFormat
 import androidx.core.content.edit
+import java.text.DecimalFormat
 
 class Umum(c: Context) {
     private val sharedPreferences: SharedPreferences =
         c.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
     private var progMuter: ProgressBar? = null
     private var tvProgMuter: TextView? = null
+    private var handler: Handler? = null
 
     fun saveString(key: String, value: String) {
         sharedPreferences.edit { putString(key, value) }
@@ -69,7 +71,7 @@ class Umum(c: Context) {
         dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_bg)
         dialog.show()
     }
-
+    // tambahkan namaAlertDialog.show() dan namaAlertDialog.dismis() saat digunakan
     fun progMuterBuka(context: Context, judul: String): AlertDialog {
         val builder = AlertDialog.Builder(context)
         val judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
@@ -86,19 +88,12 @@ class Umum(c: Context) {
     }
 
     fun progMuterUpdate(aD: AlertDialog, teksA: String) {
-        Handler(aD.window!!.decorView.handler.looper).post({
-            /*aD.findViewById<ProgressBar>(R.id.progressBar)?.incrementProgressBy(1)
-            aD.findViewById<ProgressBar>(R.id.progressBar)?.max = 100
-            aD.window!!.decorView.invalidate()
-            aD.window!!.decorView.requestLayout()*/
+        if (handler == null) {
+            handler = Handler(Looper.getMainLooper())
+        }
+        handler?.post {
             aD.findViewById<TextView>(R.id.tvdprogA)?.text = teksA
-        })
-    }
-
-    fun progMuterTutup(aD: AlertDialog) {
-        Handler(aD.window!!.decorView.handler.looper).post({
-            aD.dismiss()
-        })
+        }
     }
 
     fun dialogKonfirmasi(context: Context, judul: String, pesan: String, konfirmasi: () -> Unit) {
