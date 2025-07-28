@@ -10,7 +10,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/cell_bg_abu">
+        android:background="@drawable/cell_bg_abu_t">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -20,19 +20,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="Nama Aplikasi" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text=":" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="@string/app_name" />
         </TableRow>
 
@@ -44,19 +44,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="Nama Pembuat" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text=":" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="@string/app_creator" />
         </TableRow>
 
@@ -68,19 +68,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="Tanggal Pembuatan" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text=":" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="@string/app_tglawalbuat" />
         </TableRow>
 
@@ -92,19 +92,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="Pembaruan Terakhir" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text=":" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="@string/app_tglupdate" />
         </TableRow>
 
@@ -116,19 +116,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="Versi" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text=":" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="@string/app_versi" />
         </TableRow>
 
@@ -140,19 +140,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="Perusahaan" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text=":" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="@string/app_company" />
         </TableRow>
     </TableLayout>

@@ -13,14 +13,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/cell_bg_abu"
+            android:background="@drawable/cell_bg_abu_t"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="Warna Aplikasi"
                 android:textSize="20sp" />
 
@@ -119,14 +119,14 @@
                 android:id="@+id/switchTemaGelap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cell_bg_noborder"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:text="Tema Gelap" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/cell_bg_abu"
+            android:background="@drawable/cell_bg_abu_t"
             android:orientation="vertical">
 
             <TextView
