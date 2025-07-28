@@ -119,7 +119,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //     }
         // }
 
-
         if (permissionsToRequest.isNotEmpty()) {
             requestPermissionsLauncher.launch(permissionsToRequest.toTypedArray())
         } else {

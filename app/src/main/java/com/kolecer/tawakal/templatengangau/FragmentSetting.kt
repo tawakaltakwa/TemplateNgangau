@@ -36,7 +36,6 @@ class FragmentSetting : Fragment() {
             }
         }
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -99,16 +98,6 @@ class FragmentSetting : Fragment() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).apply {
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
-        // Anda juga bisa menggunakan Intent.ACTION_OPEN_DOCUMENT untuk pemilih file yang lebih umum
-        // val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-        // intent.addCategory(Intent.CATEGORY_OPENABLE)
-        // intent.type = "image/*"
-//        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-//            addCategory(Intent.CATEGORY_OPENABLE)
-//            type = "image/*"
-//            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-//            // addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION) // If you need write access
-//        }
         pilihGambarLauncher.launch(intent)
     }
 
