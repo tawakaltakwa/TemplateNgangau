@@ -1,11 +1,13 @@
 package com.kolecer.tawakal.templatengangau
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ProgressBar
@@ -66,6 +68,24 @@ class Umum(c: Context) {
         } catch (e: Exception) {
             e.printStackTrace()
             ma.um.toastSederhana(context, "Gagal memuat gambar")
+        }
+    }
+
+    fun aturLatarBelakang2(context: Context, ma: MainActivity, bguri: String) {
+        val bguriparse = bguri.let { Uri.parse(it) }
+        val contentResolver = ma.contentResolver
+        val takeFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or
+                Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+        val imageUri: Uri? = bguriparse
+        imageUri?.let {
+            try {
+                contentResolver.takePersistableUriPermission(it, takeFlags)
+            } catch (e: SecurityException) {
+                Log.e("PermissionError", "Failed to take persistable permission", e)
+            }
+        }
+        if (imageUri != null) {
+            ma.um.aturLatarBelakangLinearLayout(context, ma, imageUri)
         }
     }
 

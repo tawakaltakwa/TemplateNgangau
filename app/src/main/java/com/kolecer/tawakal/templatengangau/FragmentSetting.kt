@@ -7,20 +7,26 @@ import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import kotlinx.coroutines.Delay
 import java.io.FileNotFoundException
 import java.io.InputStream
+import java.util.Timer
+import java.util.TimerTask
 
 class FragmentSetting : Fragment() {
     private lateinit var um: Umum
@@ -81,6 +87,10 @@ class FragmentSetting : Fragment() {
             requireActivity().recreate()
         }
         ma.ngaloding.dismiss()
+        val bguri = ma.um.getString("bguri", "kosong")
+        if (bguri != "kosong") {
+            ma.um.aturLatarBelakang2(requireActivity(), ma, bguri)
+        }
         val btPilihBG = view.findViewById<Button>(R.id.settBpilihBG)
         val btResetBG = view.findViewById<Button>(R.id.settBresetBG)
         btPilihBG.text = "Pilih Gambar"
@@ -95,9 +105,10 @@ class FragmentSetting : Fragment() {
     }
 
     private fun bukaPemilihGambar() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).apply {
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        }
+        val intent =
+            Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).apply {
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
         pilihGambarLauncher.launch(intent)
     }
 

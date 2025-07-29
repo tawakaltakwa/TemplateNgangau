@@ -25,21 +25,7 @@ class FragmentMain : Fragment() {
         ma = activity as MainActivity
         val bguri = ma.um.getString("bguri", "kosong")
         if (bguri != "kosong") {
-            val bguriparse = bguri.let { Uri.parse(it) }
-            val contentResolver = ma.contentResolver
-            val takeFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or
-                    Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-            val imageUri: Uri? = bguriparse
-            imageUri?.let {
-                try {
-                    contentResolver.takePersistableUriPermission(it, takeFlags)
-                } catch (e: SecurityException) {
-                    Log.e("PermissionError", "Failed to take persistable permission", e)
-                }
-            }
-            if (imageUri != null) {
-                ma.um.aturLatarBelakangLinearLayout(requireActivity(), ma, imageUri)
-            }
+            ma.um.aturLatarBelakang2(requireActivity(), ma, bguri)
         }
     }
 

@@ -4,6 +4,7 @@
         <!-- Customize your light theme here. -->
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnBackground">@color/whitetranspsaeutik</item>
 
         <!-- Text -->
         <item name="android:textSize">16sp</item>

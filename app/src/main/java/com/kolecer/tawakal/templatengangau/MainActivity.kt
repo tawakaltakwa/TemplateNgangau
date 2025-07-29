@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
     }
-    private fun checkAndRequestMediaPermissions() {
+    fun checkAndRequestMediaPermissions() {
         val permissionsToRequest = mutableListOf<String>()
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES)

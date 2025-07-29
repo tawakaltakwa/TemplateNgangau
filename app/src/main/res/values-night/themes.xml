@@ -4,6 +4,7 @@
         <!-- Customize your dark theme here. -->
         <item name="colorOnPrimary">@color/black</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnBackground">@color/blacktranspsaeutik</item>
 
         <!-- Text -->
         <item name="android:textSize">16sp</item>
