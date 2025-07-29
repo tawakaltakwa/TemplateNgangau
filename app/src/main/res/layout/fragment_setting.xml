@@ -144,8 +144,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/cell_bg_noborder_t"
                 android:gravity="center_horizontal"
-                android:text="Atur Background" />
+                android:text="Atur Background"
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
