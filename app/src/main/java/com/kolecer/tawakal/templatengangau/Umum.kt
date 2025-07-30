@@ -19,6 +19,7 @@ import androidx.core.content.edit
 import java.io.FileNotFoundException
 import java.io.InputStream
 import java.text.DecimalFormat
+import androidx.core.net.toUri
 
 class Umum(c: Context) {
     private val sharedPreferences: SharedPreferences =
@@ -56,6 +57,7 @@ class Umum(c: Context) {
         }
     }
 
+    // pilih gambar
     fun aturLatarBelakangLinearLayout(context: Context, ma: MainActivity, imageUri: Uri) {
         try {
             val inputStream: InputStream? = ma.contentResolver.openInputStream(imageUri)
@@ -71,22 +73,21 @@ class Umum(c: Context) {
         }
     }
 
+    // refresh
     fun aturLatarBelakang2(context: Context, ma: MainActivity, bguri: String) {
-        val bguriparse = bguri.let { Uri.parse(it) }
+        val bguriparse = bguri.toUri()
         val contentResolver = ma.contentResolver
         val takeFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or
                 Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-        val imageUri: Uri? = bguriparse
-        imageUri?.let {
+        val imageUri: Uri = bguriparse
+        imageUri.let {
             try {
                 contentResolver.takePersistableUriPermission(it, takeFlags)
             } catch (e: SecurityException) {
                 Log.e("PermissionError", "Failed to take persistable permission", e)
             }
         }
-        if (imageUri != null) {
-            ma.um.aturLatarBelakangLinearLayout(context, ma, imageUri)
-        }
+        ma.um.aturLatarBelakangLinearLayout(context, ma, imageUri)
     }
 
     fun formatDuit(angka: Int): String {/*val nf = NumberFormat.getCurrencyInstance(Locale("id", "ID"))

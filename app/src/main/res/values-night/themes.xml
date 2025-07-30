@@ -15,7 +15,6 @@
         <!-- bg -->
         <item name="android:colorBackground">@color/black2</item>
         <item name="android:colorForeground">@color/abugelap</item>
-        <item name="android:popupBackground">?attr/colorOnSecondary</item>
 
         <!-- lain -->
         <item name="actionOverflowButtonStyle">@style/MyOverflowButtonStyle</item>
