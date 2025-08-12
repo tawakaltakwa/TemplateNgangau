@@ -16,12 +16,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.edit
+import androidx.core.net.toUri
 import java.io.FileNotFoundException
 import java.io.InputStream
 import java.text.DecimalFormat
-import androidx.core.net.toUri
 
-class Umum(c: Context) {
+class Umum(val c: Context) {
     private val sharedPreferences: SharedPreferences =
         c.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
     private var progMuter: ProgressBar? = null
@@ -36,16 +36,16 @@ class Umum(c: Context) {
         return sharedPreferences.getString(key, defaultValue) ?: defaultValue
     }
 
-    fun aturWarna(context: Context, warna: String) {
+    fun aturWarna(warna: String) {
         when (warna) {
-            "hejo" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
-            "biru" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Biru)
-            "beureum" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Beureum)
-            "koneng" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Koneng)
-            "kayas" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Kayas)
-            "bungur" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Bungur)
-            "oren" -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Oren)
-            else -> context.setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
+            "hejo" -> c.setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
+            "biru" -> c.setTheme(R.style.Base_Theme_TemplateNgangau_Biru)
+            "beureum" -> c.setTheme(R.style.Base_Theme_TemplateNgangau_Beureum)
+            "koneng" -> c.setTheme(R.style.Base_Theme_TemplateNgangau_Koneng)
+            "kayas" -> c.setTheme(R.style.Base_Theme_TemplateNgangau_Kayas)
+            "bungur" -> c.setTheme(R.style.Base_Theme_TemplateNgangau_Bungur)
+            "oren" -> c.setTheme(R.style.Base_Theme_TemplateNgangau_Oren)
+            else -> c.setTheme(R.style.Base_Theme_TemplateNgangau_Hejo)
         }
     }
 
@@ -58,7 +58,7 @@ class Umum(c: Context) {
     }
 
     // pilih gambar
-    fun aturLatarBelakangLinearLayout(context: Context, ma: MainActivity, imageUri: Uri) {
+    fun aturLatarBelakangLinearLayout(ma: MainActivity, imageUri: Uri) {
         try {
             val inputStream: InputStream? = ma.contentResolver.openInputStream(imageUri)
             val drawable = Drawable.createFromStream(inputStream, imageUri.toString())
@@ -66,15 +66,15 @@ class Umum(c: Context) {
             inputStream?.close()
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
-            ma.um.toastSederhana(context, "File gambar tidak ditemukan")
+            ma.um.toastInfo("File gambar tidak ditemukan")
         } catch (e: Exception) {
             e.printStackTrace()
-            ma.um.toastSederhana(context, "Gagal memuat gambar")
+            ma.um.toastInfo("Gagal memuat gambar")
         }
     }
 
     // refresh
-    fun aturLatarBelakang2(context: Context, ma: MainActivity, bguri: String) {
+    fun aturLatarBelakang2(ma: MainActivity, bguri: String) {
         val bguriparse = bguri.toUri()
         val contentResolver = ma.contentResolver
         val takeFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or
@@ -87,7 +87,7 @@ class Umum(c: Context) {
                 Log.e("PermissionError", "Failed to take persistable permission", e)
             }
         }
-        ma.um.aturLatarBelakangLinearLayout(context, ma, imageUri)
+        ma.um.aturLatarBelakangLinearLayout(ma, imageUri)
     }
 
     fun formatDuit(angka: Int): String {/*val nf = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
@@ -96,13 +96,13 @@ class Umum(c: Context) {
         return "Rp. " + formatter.format(angka)
     }
 
-    fun toastSederhana(context: Context, pesan: String) {
-        Toast.makeText(context, pesan, Toast.LENGTH_LONG).show()
+    fun toastInfo(pesan: String) {
+        Toast.makeText(c, pesan, Toast.LENGTH_LONG).show()
     }
 
-    fun dialogInfo(context: Context, judul: String, pesan: String) {
-        val builder = AlertDialog.Builder(context)
-        val judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
+    fun dialogInfo(judul: String, pesan: String) {
+        val builder = AlertDialog.Builder(c)
+        val judulL = LayoutInflater.from(c).inflate(R.layout.dialog_judul, null) as TextView
         judulL.text = judul
         builder.setCustomTitle(judulL).setMessage(pesan).setPositiveButton("OK") { dialog, _ ->
             dialog.dismiss()
@@ -113,12 +113,12 @@ class Umum(c: Context) {
     }
 
     // tambahkan namaAlertDialog.show() dan namaAlertDialog.dismis() saat digunakan
-    fun progMuterBuka(context: Context, judul: String): AlertDialog {
-        val builder = AlertDialog.Builder(context)
-        val judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
+    fun progMuterBuka(judul: String): AlertDialog {
+        val builder = AlertDialog.Builder(c)
+        val judulL = LayoutInflater.from(c).inflate(R.layout.dialog_judul, null) as TextView
         judulL.text = judul
         builder.setCustomTitle(judulL).setCancelable(false)
-        val dView = LayoutInflater.from(context).inflate(R.layout.dialog_progress, null)
+        val dView = LayoutInflater.from(c).inflate(R.layout.dialog_progress, null)
         progMuter = dView.findViewById(R.id.progressBar)
         tvProgMuter = dView.findViewById(R.id.tvdprogA)
         tvProgMuter!!.text = "Proses..."
@@ -137,9 +137,9 @@ class Umum(c: Context) {
         }
     }
 
-    fun dialogKonfirmasi(context: Context, judul: String, pesan: String, konfirmasi: () -> Unit) {
-        val builder = AlertDialog.Builder(context)
-        val judulL = LayoutInflater.from(context).inflate(R.layout.dialog_judul, null) as TextView
+    fun dialogKonfirmasi(judul: String, pesan: String, konfirmasi: () -> Unit) {
+        val builder = AlertDialog.Builder(c)
+        val judulL = LayoutInflater.from(c).inflate(R.layout.dialog_judul, null) as TextView
         judulL.text = judul
         builder.setCustomTitle(judulL).setMessage(pesan)
         builder.setPositiveButton("Ya") { dialog, _ ->
@@ -155,9 +155,7 @@ class Umum(c: Context) {
     }
 
     // menyusun dialog selanjutnya disambung denga DialogTampil()
-    fun dialogSusun(
-        c: Context, judul: String, pesan: String, vBody: View
-    ): AlertDialog.Builder {
+    fun dialogSusun(judul: String, pesan: String, vBody: View): AlertDialog.Builder {
         val builder = AlertDialog.Builder(c)
         val judulL = LayoutInflater.from(c).inflate(R.layout.dialog_judul, null) as TextView
         judulL.text = judul

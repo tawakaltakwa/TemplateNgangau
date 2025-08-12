@@ -1,32 +1,17 @@
 package com.kolecer.tawakal.templatengangau
 
-import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import kotlinx.coroutines.Delay
-import java.io.FileNotFoundException
-import java.io.InputStream
-import java.util.Timer
-import java.util.TimerTask
 
 class FragmentSetting : Fragment() {
     private lateinit var um: Umum
@@ -37,7 +22,7 @@ class FragmentSetting : Fragment() {
                 val data: Intent? = result.data
                 data?.data?.let { uri ->
                     ma.um.saveString("bguri", uri.toString())
-                    ma.um.aturLatarBelakangLinearLayout(requireActivity(), ma, uri)
+                    ma.um.aturLatarBelakangLinearLayout(ma, uri)
                 }
             }
         }
@@ -63,7 +48,7 @@ class FragmentSetting : Fragment() {
         ma.um.progMuterUpdate(ma.ngaloding, "Memuat tema...")
         fun aturWarna(warna: String) {
             um.saveString("theme", warna)
-            um.aturWarna(requireActivity(), warna)
+            um.aturWarna(warna)
             requireActivity().recreate()
         }
         btHejo.setOnClickListener { aturWarna("hejo") }
@@ -89,7 +74,7 @@ class FragmentSetting : Fragment() {
         ma.ngaloding.dismiss()
         val bguri = ma.um.getString("bguri", "kosong")
         if (bguri != "kosong") {
-            ma.um.aturLatarBelakang2(requireActivity(), ma, bguri)
+            ma.um.aturLatarBelakang2(ma, bguri)
         }
         val btPilihBG = view.findViewById<Button>(R.id.settBpilihBG)
         val btResetBG = view.findViewById<Button>(R.id.settBresetBG)

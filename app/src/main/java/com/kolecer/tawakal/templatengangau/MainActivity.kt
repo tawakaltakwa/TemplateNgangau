@@ -1,9 +1,7 @@
 package com.kolecer.tawakal.templatengangau
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -17,7 +15,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
 import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -48,7 +45,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         um = Umum(this)
-        um.aturWarna(this, um.getString("theme", "hejo"))
+        um.aturWarna(um.getString("theme", "hejo"))
         um.temaGelap(um.getString("gelap", "off"))
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -67,7 +64,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         headerTitle.text = "MENU"
         checkAndRequestMediaPermissions()
         llru = findViewById(R.id.ll_ruang_utama)
-        ngaloding = um.progMuterBuka(this, "Memuat...")
+        ngaloding = um.progMuterBuka("Memuat...")
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, findViewById(R.id.toolbar), R.string.open_nav, R.string.close_nav
         )
@@ -93,6 +90,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
     }
+
     fun checkAndRequestMediaPermissions() {
         val permissionsToRequest = mutableListOf<String>()
 
