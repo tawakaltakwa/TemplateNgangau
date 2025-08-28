@@ -96,6 +96,10 @@ class Umum(val c: Context) {
         return "Rp. " + formatter.format(angka)
     }
 
+    fun inflateV(layout: Int): View {
+        return LayoutInflater.from(c).inflate(layout, null)
+    }
+
     fun toastInfo(pesan: String) {
         Toast.makeText(c, pesan, Toast.LENGTH_LONG).show()
     }
@@ -118,7 +122,7 @@ class Umum(val c: Context) {
         val judulL = LayoutInflater.from(c).inflate(R.layout.dialog_judul, null) as TextView
         judulL.text = judul
         builder.setCustomTitle(judulL).setCancelable(false)
-        val dView = LayoutInflater.from(c).inflate(R.layout.dialog_progress, null)
+        val dView = inflateV(R.layout.dialog_progress)
         progMuter = dView.findViewById(R.id.progressBar)
         tvProgMuter = dView.findViewById(R.id.tvdprogA)
         tvProgMuter!!.text = "Proses..."
